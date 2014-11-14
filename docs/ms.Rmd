@@ -1,10 +1,9 @@
-
 ```{r. results = "hide", warnings = FALSE, echo = FALSE, message = FALSE}
-packages = c("knitr", "bibtex", "knitcitations", "plyr")
-sapply(packages, function(x) library())
+packages = c("knitr", "plyr", "xtable")
+install.packages(packages)
+sapply(packages, function(x) library(x, character = TRUE))
 
-source("../R/functions.R")
-
+source("../analysis.r")
 ```
 
 ## Some benefits of writing your manuscripts in R markdown: A short tutorial
@@ -20,3 +19,14 @@ Daniel Noble^1,2^ and Diego Barneche^1^
 R markdown provides a really cool platform for embedding your R script directly into your manuscript. You can then evaluate functions, figures, tables, numbers and objects directly in the manuscript, which means that if your data changes no more updating your values, tables and figures painfully by hand! In this manuscript we will show you how to do all this and incorperate references. 
 
 ### Methods
+
+Maybe you want to write how many males and females you collected. So we collected `r nrow(data[data$sex == "M",])` males and `r nrow(data[data$sex == "F",])` females. This will be evaluated by knitR to indicate the numbers 50 for males and 50 for females. Which you will see later will be problematic when the data gets updated. We created some data using the following equation: 
+
+rnorm(100, data$x1*2 + dummy*5 + data$x2*5.5, 1)
+
+$$Y \approx \beta_0 + \Delta_{sex} + \beta_1 * X_1 + \beta_2 * X_2 + \epsilon$$
+
+where $Y$ is our response variable, $\Delta_{sex}$ are sex-driven devitions in our intercept $\beta_0$, and $\beta_1$ and $\beta_2$ are the coefficients for our predictor variables $X_1$ and $X_2$.
+
+## Results
+

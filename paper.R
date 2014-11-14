@@ -5,4 +5,4 @@ knit('text/ms.Rmd', output=file.path(getwd(), 'docs/ms.md'), quiet=TRUE, encodin
 system('pandoc -o docs/ms.docx docs/ms.md -s -S --bibliography library.bib --csl plos-biology.csl')
 
 # to pdf
-system('pandoc docs/ms.md -o text/ms.pdf -s -S --bibliography library.bib --csl plos-biology.csl')
+system('pandoc docs/ms.md -o docs/ms.pdf -s -S --bibliography library.bib --csl plos-biology.csl')
