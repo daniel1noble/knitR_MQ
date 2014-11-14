@@ -12,7 +12,7 @@ Daniel Noble^1,2^ and Diego Barneche^1^
 
 ^1^ Department of Biology, Macquarie University
 
-^2^ Authors to whom you should maybe not bother talking to
+^2^ Author to whom you should maybe not bother contacting
 
 ###Introduction
 
@@ -26,7 +26,7 @@ rnorm(100, data$x1*2 + dummy*5 + data$x2*5.5, 1)
 
 $$Y \approx \beta_0 + \Delta_{sex} + \beta_1 * X_1 + \beta_2 * X_2 + \epsilon$$
 
-where $Y$ is our response variable, $\Delta_{sex}$ are sex-driven devitions in our intercept $\beta_0$, and $\beta_1$ and $\beta_2$ are the coefficients for our predictor variables $X_1$ and $X_2$.
+where $Y$ is our response variable, $\Delta_{sex}$ are sex-driven devitions in our intercept $\beta_0$, and $\beta_1$ and $\beta_2$ are the coefficients for our predictor variables $X_1$ and $X_2$. TO reference this equation we can consult (@ackerman2004oecologia). 
 
-## Results
+### Results
 
