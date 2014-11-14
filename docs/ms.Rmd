@@ -1,0 +1,22 @@
+
+```{r. results = "hide", warnings = FALSE, echo = FALSE, message = FALSE}
+packages = c("knitr", "bibtex", "knitcitations", "plyr")
+sapply(packages, function(x) library())
+
+source("../R/functions.R")
+
+```
+
+## Some benefits of writing your manuscripts in R markdown: A short tutorial
+
+Daniel Noble^1,2^ and Diego Barneche^1^
+
+^1^ Department of Biology, Macquarie University
+
+^2^ Authors to whom you should maybe not bother talking to
+
+###Introduction
+
+R markdown provides a really cool platform for embedding your R script directly into your manuscript. You can then evaluate functions, figures, tables, numbers and objects directly in the manuscript, which means that if your data changes no more updating your values, tables and figures painfully by hand! In this manuscript we will show you how to do all this and incorperate references. 
+
+### Methods
