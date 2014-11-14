@@ -1,9 +1,9 @@
-```{r. results = "hide", warnings = FALSE, echo = FALSE, message = FALSE}
+```{r, results = "hide", warnings = FALSE, echo = FALSE, message = FALSE}
 packages = c("knitr", "plyr", "xtable")
-install.packages(packages)
+#install.packages(packages)
 sapply(packages, function(x) library(x, character = TRUE))
 
-source("../analysis.r")
+source("../analysis.R")
 ```
 
 ## Some benefits of writing your manuscripts in R markdown: A short tutorial
@@ -14,7 +14,7 @@ Daniel Noble^1,2^ and Diego Barneche^1^
 
 ^2^ Author to whom you should maybe not bother contacting
 
-###Introduction
+### Introduction
 
 R markdown provides a really cool platform for embedding your R script directly into your manuscript. You can then evaluate functions, figures, tables, numbers and objects directly in the manuscript, which means that if your data changes no more updating your values, tables and figures painfully by hand! In this manuscript we will show you how to do all this and incorperate references. 
 
@@ -22,11 +22,26 @@ R markdown provides a really cool platform for embedding your R script directly 
 
 Maybe you want to write how many males and females you collected. So we collected `r nrow(data[data$sex == "M",])` males and `r nrow(data[data$sex == "F",])` females. This will be evaluated by knitR to indicate the numbers 50 for males and 50 for females. Which you will see later will be problematic when the data gets updated. We created some data using the following equation: 
 
-rnorm(100, data$x1*2 + dummy*5 + data$x2*5.5, 1)
-
 $$Y \approx \beta_0 + \Delta_{sex} + \beta_1 * X_1 + \beta_2 * X_2 + \epsilon$$
 
-where $Y$ is our response variable, $\Delta_{sex}$ are sex-driven devitions in our intercept $\beta_0$, and $\beta_1$ and $\beta_2$ are the coefficients for our predictor variables $X_1$ and $X_2$. TO reference this equation we can consult (@ackerman2004oecologia). 
+where $Y$ is our response variable, $\Delta_{sex}$ are sex-driven devitions in our intercept $\beta_0$, and $\beta_1$ and $\beta_2$ are the coefficients for our predictor variables $X_1$ and $X_2$. To reference this equation we can consult [@ackerman2004oecologia]. 
 
 ### Results
 
+The average Y for males was `r mean(data[data$sex == "M",]$y)` and for females `r mean(data[data$sex == "M",]$y)`. Y was strongly related to x1 (Fig 1 & Table 1).
+
+
+```{r, eval = TRUE, echo = FALSE, fig.width = 4, fig.height = 4, fig.align = "center", fig.cap = "Relationship between Y and x1"}
+
+plot(y ~ x1, data = data, pch = 16, ylab = "Y label", xlab = "x label")
+
+```
+
+
+```{r,echo = FALSE}
+
+xtable(results)
+
+```
+
+### References
