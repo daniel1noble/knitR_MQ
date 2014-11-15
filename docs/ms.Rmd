@@ -1,9 +1,10 @@
 ```{r, results = "hide", warnings = FALSE, echo = FALSE, message = FALSE}
-packages = c("knitr", "plyr", "xtable")
-#install.packages(packages)
-sapply(packages, function(x) library(x, character = TRUE))
-
+library("knitr")
+library("plyr")
+library("xtable")
 source("../analysis.R")
+source("../R/functions.R")
+results  <-  modelSummary(mod)
 ```
 
 ## Some benefits of writing your manuscripts in R markdown: A short tutorial
@@ -31,17 +32,14 @@ where $Y$ is our response variable, $\Delta_{sex}$ are sex-driven devitions in o
 The average Y for males was `r mean(data[data$sex == "M",]$y)` and for females `r mean(data[data$sex == "M",]$y)`. Y was strongly related to x1 (Fig 1 & Table 1).
 
 
-```{r, eval = TRUE, echo = FALSE, fig.width = 4, fig.height = 4, fig.align = "center", fig.cap = "Relationship between Y and x1"}
-
-plot(y ~ x1, data = data, pch = 16, ylab = "Y label", xlab = "x label")
-
+```{r, echo = FALSE, fig.width = 4, fig.height = 4, fig.cap = "Relationship between Y and x1"}
+plot(y ~ x1, data = data, pch = 16, ylab = "Y label", xlab = "x label", las=1)
 ```
 
 
-```{r,echo = FALSE}
-
-xtable(results)
-
+```{r,echo = FALSE, results="asis"}
+options(xtable.comment = FALSE)
+print(xtable(results, caption='Table 1'), caption.placement='top')
 ```
 
 ### References
