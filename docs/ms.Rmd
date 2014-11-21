@@ -32,7 +32,7 @@ where $Y$ is our response variable, $\Delta_{sex}$ are sex-driven devitions in o
 The average Y for males was `r mean(data[data$sex == "M",]$y)` and for females `r mean(data[data$sex == "M",]$y)`. Y was strongly related to x1 (Fig 1 & Table 1).
 
 
-```{r, echo = FALSE, fig.width = 4, fig.height = 4, fig.cap = "Relationship between Y and x1"}
+```{r, echo = FALSE, fig.width = 4, fig.height = 4, fig.cap = "Relationship between Y and x1", dpi=300}
 plot(y ~ x1, data = data, pch = 16, ylab = "Y label", xlab = "x label", las=1)
 ```
 
