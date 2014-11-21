@@ -1,0 +1,7 @@
+*.pdf
+*.out
+*.log
+.DS_Store
+.Rhistory
+output/
+pdfs/
